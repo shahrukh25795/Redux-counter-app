@@ -6,6 +6,9 @@ import Layout from '../Global/Layout/Layout';
 import Footer from '../Global/Footer/Footer';
 import TodoApp from '../TodoApp/TodoApp';
 import Person from '../Person/Person';
+import TodoAppWithSelection from '../TodoAppWithSelection/TodoAppWithSelection';
+import GitHubSigleUserDetail from '../GitHubSigleUsrDetail/GitHubSigleUsrDetail';
+import GitHubMultipleUsrList from '../GitHubMultipleUsrList/GitHubUsrList';
 
 export default class Routes extends React.Component{
     constructor(props){
@@ -25,6 +28,9 @@ export default class Routes extends React.Component{
                     <Route exact path="/footer" render={(props) => <Footer {...props} />} />
                     <Route exact path="/todo-app" render={(props) => <TodoApp {...props} />} />
                     <Route exact path="/person" render={(props) => <Person {...props} />} />
+                    <Route exact path="/todo-app-with-selection" render={(props) => <TodoAppWithSelection {...props} />} />
+                    <Route exact path="/git-single-user" render={(props) => <GitHubSigleUserDetail {...props} />} />
+                    <Route exact path="/git-multi-user" render={(props) => <GitHubMultipleUsrList {...props} />} />
                 </Switch>
             </BrowserRouter>
         )

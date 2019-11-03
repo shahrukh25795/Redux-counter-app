@@ -10,11 +10,20 @@ export default class Home extends React.Component{
     render(){
         return (
             <React.Fragment>
-                <div className="container" onClick={()=>this.props.history.push('/person')}>
+                <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/person')}>
                 <h1>Person List</h1>
             </div>
-            <div className="container" onClick={()=>this.props.history.push('/todo-app')}>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/todo-app')}>
                 <h1>Todo App</h1>
+            </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/todo-app-with-selection')}>
+                <h1>Todo dummy</h1>
+            </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/git-single-user')}>
+                <h1>Git Single user</h1>
+            </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/git-multi-user')}>
+                <h1>Git Multi User</h1>
             </div>
             </React.Fragment>
         )
