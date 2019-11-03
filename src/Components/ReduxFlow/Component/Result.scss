@@ -1,0 +1,37 @@
+.result{
+    border: 1px solid #eee;
+    box-shadow: 0 2px 2px #ccc;
+    width: 250px;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.increment_margin{
+    background-color: #97d399;
+}
+.dec_btn{
+    margin-left: 20px;
+    background-color: #e9e249;
+    cursor: pointer;
+    border: 1px solid #eee;
+    width: 250px;
+    height: 55px;
+    display: inline-block;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 20px;
+}
+.inc_btn{
+    margin-left: 320px;
+    background-color: #7cd57f;
+    cursor: pointer;
+    border: 1px solid #eee;
+    width: 250px;
+    height: 55px;
+    display: inline-block;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 20px;
+}
