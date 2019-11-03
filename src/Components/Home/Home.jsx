@@ -28,6 +28,12 @@ export default class Home extends React.Component{
             <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/table-list')}>
                 <h1>Table List</h1>
             </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/facebook-login')}>
+                <h1>Facebook Login</h1>
+            </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/google-login')}>
+                <h1>Google Login</h1>
+            </div>
             </React.Fragment>
         )
     }

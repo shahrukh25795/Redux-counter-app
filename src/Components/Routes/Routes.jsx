@@ -11,6 +11,8 @@ import GitHubSigleUserDetail from '../GitHubSigleUsrDetail/GitHubSigleUsrDetail'
 import GitHubMultipleUsrList from '../GitHubMultipleUsrList/GitHubUsrList';
 import TableList from '../TableList/TableList';
 import ReduxResult from '../ReduxFlow/Component/Result';
+import GoogleAuth from '../GoogleLogin/GoogeLogin';
+import FacebookAuth from '../FacebookLogin/FacebookLogin';
 
 export default class Routes extends React.Component{
     constructor(props){
@@ -35,6 +37,8 @@ export default class Routes extends React.Component{
                     <Route exact path="/table-list" render={(props) => <TableList {...props} />} />
                     <Route exact path="/redux-count" render={(props) => <ReduxResult {...props} />} />
                     <Route exact path="/git-multi-user" render={(props) => <GitHubMultipleUsrList {...props} />} />
+                    <Route exact path="/facebook-login" render={(props) => <FacebookAuth {...props} />} />
+                    <Route exact path="/google-login" render={(props) => <GoogleAuth {...props} />} />
                 </Switch>
             </BrowserRouter>
         )
