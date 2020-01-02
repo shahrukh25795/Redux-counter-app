@@ -23,7 +23,7 @@ export default class GoogleAuth extends React.Component{
                 <GoogleLogin
                     clientId="605647662967-1t8v8ho5ammcd06r6m93cphd03792jn6.apps.googleusercontent.com"
                     buttonText="Login with Google"
-                    className="google"
+                    className="google_btn"
                     onSuccess={this.gooleResponseHandler}
                     onFailure={this.gooleResponseHandler}
                 />
