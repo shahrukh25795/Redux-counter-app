@@ -34,6 +34,9 @@ export default class Home extends React.Component{
             <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/google-login')}>
                 <h1>Google Login</h1>
             </div>
+            <div style={{cursor:"pointer"}} className="container" onClick={()=>this.props.history.push('/login-with-number')}>
+                <h1>Login With Number</h1>
+            </div>
             </React.Fragment>
         )
     }

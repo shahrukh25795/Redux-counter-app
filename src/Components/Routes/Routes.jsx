@@ -13,6 +13,7 @@ import TableList from '../TableList/TableList';
 import ReduxResult from '../ReduxFlow/Component/Result';
 import GoogleAuth from '../GoogleLogin/GoogeLogin';
 import FacebookAuth from '../FacebookLogin/FacebookLogin';
+import LoginWithNumber from '../LoginWithFirebaseMobileNumber/LoginWithNumber';
 
 export default class Routes extends React.Component{
     constructor(props){
@@ -39,6 +40,7 @@ export default class Routes extends React.Component{
                     <Route exact path="/git-multi-user" render={(props) => <GitHubMultipleUsrList {...props} />} />
                     <Route exact path="/facebook-login" render={(props) => <FacebookAuth {...props} />} />
                     <Route exact path="/google-login" render={(props) => <GoogleAuth {...props} />} />
+                    <Route exact path="/login-with-number" render={(props) => <LoginWithNumber {...props} />} />
                 </Switch>
             </BrowserRouter>
         )
