@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-// import * as firebase from 'firebase/app';
 import "./input.scss"
 
 class LoginWithNumber extends Component {
@@ -8,6 +7,7 @@ class LoginWithNumber extends Component {
         super(props);
         this.state = {
             phoneNumber : "",
+            code : ""
         }
     }
 
@@ -25,37 +25,49 @@ class LoginWithNumber extends Component {
           if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
+    //     window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //    window.recaptchaVerifier.render();
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible',
+        'callback': function(response) {
+        }
+      });
+      window.recaptchaVerifier.render();
     }
 
     handleBtnClicked=()=>{
-        const recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
-            'size': 'invisible',
-            'callback': function(response) {
-                console.log(this.state.phoneNumber,response,"555555")
-                this.handleLogin(recaptchaVerifier)
-            }
-          });
-        
+        firebase.auth().signOut().then(res=> {
+            var phoneNumber = `+91${this.state.phoneNumber}`;
+            firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier)
+            .then(function (confirmationResult) {
+                window.confirmationResult=confirmationResult;
+            }).catch(function (error) {
+            });
+        }).catch(err=> {});
+       
     }
 
-    handleLogin=(recaptchaVerifier)=>{
-        firebase.auth().signInWithPhoneNumber(this.state.phoneNumber,recaptchaVerifier)
-        .then(function (confirmationResult) {
-          // SMS sent. Prompt user to type the code from the message, then sign the
-          // user in with confirmationResult.confirm(code).
-          console.log(confirmationResult,"888888")
+    handleCode=()=>{
+        window.confirmationResult.confirm(this.state.code).then(function (result) {
+            console.log("pppppppppp",result);
         }).catch(function (error) {
-          // Error; SMS not sent
-          // ...
+            alert(error.message);
         });
     }
 
     render() {
         return (
+            <>
             <div className="input_wrapper">
                 <input className='input' type="number" value={this.state.phoneNumber} onChange={(evt)=>this.setState({phoneNumber : evt.target.value})} />
-                <button className='btn' type="button" id='sign-in-button' onClick={this.handleBtnClicked}>Verify</button>
+                <button className='btn' type="button" onClick={this.handleBtnClicked}>send</button>
             </div>
+            <div className="input_wrapper" style={{display : "none"}} id="recaptcha-container"></div>
+            <div className="input_wrapper">
+            <input className='input' type="number" value={this.state.code} onChange={(evt)=>this.setState({code : evt.target.value})} />
+                <button className='btn' type="button" onClick={this.handleCode}>Verify</button>
+            </div>
+            </>
         );
     }
 }
