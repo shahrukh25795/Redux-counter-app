@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import "./input.scss"
+import CountryCodePicker from '../CountryCodePicker/CountryCodePicker';
 
 class LoginWithNumber extends Component {
     constructor(props){
@@ -55,10 +56,15 @@ class LoginWithNumber extends Component {
         });
     }
 
+    countryCode=(country)=>{
+        console.log(country,"country")
+    }
+
     render() {
         return (
             <>
             <div className="input_wrapper">
+                <CountryCodePicker countryCode={this.countryCode}/>
                 <input className='input' type="number" value={this.state.phoneNumber} onChange={(evt)=>this.setState({phoneNumber : evt.target.value})} />
                 <button className='btn' type="button" onClick={this.handleBtnClicked}>send</button>
             </div>
